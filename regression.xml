@@ -1,0 +1,7 @@
+<suite name="regression">
+    <test name="regression test">
+        <classes>
+            <class name="pet.Runner.RegressionRunner"/>
+        </classes>
+    </test>
+</suite>

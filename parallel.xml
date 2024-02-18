@@ -1,0 +1,17 @@
+<suite name="upload" parallel="tests" test-count="3">
+    <test name="test_upload">
+        <classes>
+            <class name="pet.Runner.uploadRunner"/>
+        </classes>
+    </test>
+    <test name="uploadUnhappy">
+        <classes>
+            <class name="pet.Runner.uploadUnhappyRunner"/>
+        </classes>
+    </test>
+    <test name="add pet">
+        <classes>
+            <class name="pet.Runner.AddPetRunner"/>
+        </classes>
+    </test>
+</suite>

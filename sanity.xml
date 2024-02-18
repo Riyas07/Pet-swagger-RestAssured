@@ -1,0 +1,7 @@
+<suite name="sanity">
+    <test name="test sanity">
+        <classes>
+            <class name="pet.Runner.sanityRunner"/>
+        </classes>
+    </test>
+</suite>
