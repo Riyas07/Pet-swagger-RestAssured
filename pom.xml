@@ -51,9 +51,35 @@
 
 </dependencies>
     <properties>
+        <parallelSuite.file>parallel.xml</parallelSuite.file>
+        <sanitySuite.file>sanity.xml</sanitySuite.file>
+        <regressionSuite.file>regression.xml</regressionSuite.file>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.2.5</version>
+                    <configuration>
+                        <suiteXmlFiles>
+                            <suiteXmlFile>
+                                ${parallelSuite.file}
+                            </suiteXmlFile>
+                            <suiteXmlFile>
+                                ${sanitySuite.file}
+                            </suiteXmlFile>
+                            <suiteXmlFile>
+                                ${regressionSuite.file}
+                            </suiteXmlFile>
+                        </suiteXmlFiles>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>
