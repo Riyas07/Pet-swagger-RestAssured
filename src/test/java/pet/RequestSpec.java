@@ -30,7 +30,7 @@ public class RequestSpec {
         RequestSpecBuilder requestSpecBuilder=new RequestSpecBuilder();
       requestSpecification =  requestSpecBuilder.setBaseUri("https://petstore.swagger.io")
                 .setBasePath("/v2")
-                .setAuth(oauth2("20f6bdf3-778c-4c46-b221-4260f5ddba84"))
+                .setAuth(oauth2("de9672a1-a00f-45e4-b0ef-70c4a59ab461"))
                 .setConfig(config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
                 .build();
     }

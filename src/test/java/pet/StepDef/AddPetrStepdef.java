@@ -19,10 +19,10 @@ import org.hamcrest.Matchers;
 import pet.Pojo.AddPetsPojo;
 import pet.RequestSpec;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.io.PrintStream;
+import java.io.*;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.*;
 
 public class AddPetrStepdef {
@@ -135,10 +135,15 @@ String payload;
     }
 
     @Then("trigger the POST request to add resource")
-    public void triggerThePOSTRequestToAddResource() throws FileNotFoundException {
+    public void triggerThePOSTRequestToAddResource() throws IOException {
+        FileOutputStream  outputStream = new FileOutputStream("src/main/resources/evidences/addUser.json",true);
+       Instant instant= Instant.now();
+        ZoneId zoneId=ZoneId.of("Asia/Kolkata");
+        ZonedDateTime zonedDateTime=ZonedDateTime.ofInstant(instant,zoneId);
+        outputStream.write(zonedDateTime.toString().getBytes());
         given(requestSpecification)
                 .contentType(ContentType.JSON)
-                .filter(ResponseLoggingFilter.logResponseTo(new PrintStream("src/main/resources/evidences/addUser.json"), LogDetail.BODY))
+                .filter(ResponseLoggingFilter.logResponseTo(new PrintStream(outputStream), LogDetail.BODY))
                 .body(this.payload)
                 .when().post("/pet")
                 .then().assertThat().statusCode(200).body("", Matchers.hasValue(pojo.getId()));

@@ -13,6 +13,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.requestSpecification;
@@ -35,9 +38,14 @@ public class uploadUnhappy {
             outputStream.write(bytes);
             outputStream.flush();
             outputStream.close();
+            FileOutputStream outputStream1=new FileOutputStream("src/main/resources/evidences/uploadUnhappy.txt");
+           Instant instant=Instant.now();
+            ZoneId zoneId=ZoneId.of("Asia/Kolkata");
+            ZonedDateTime zonedDateTime=ZonedDateTime.ofInstant(instant,zoneId);
+            outputStream1.write(zonedDateTime.toString().getBytes());
             given(requestSpecification).contentType(ContentType.MULTIPART)
                     .pathParam("petId",petId)
-                    .filter(ResponseLoggingFilter.logResponseTo(new PrintStream("src/main/resources/evidences/uploadUnhappy.txt"), LogDetail.BODY))
+                    .filter(ResponseLoggingFilter.logResponseTo(new PrintStream(outputStream1), LogDetail.BODY))
                     .formParam("additionalMetadata",ad)
                     .multiPart(f).when().post("/pet/{petId}/uploadImage")
                     .then().assertThat().statusCode(404)

@@ -1,5 +1,0 @@
-{
-    "code": 200,
-    "type": "unknown",
-    "message": "additionalMetadata: by riyas\nFile uploaded to ./ApiDemos-debug.apk, 0 bytes"
-}

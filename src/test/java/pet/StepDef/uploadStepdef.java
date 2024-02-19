@@ -14,6 +14,9 @@ import pet.RequestSpec;
 import pet.util.ApiManager;
 
 import java.io.*;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 public class uploadStepdef {
     @Given("token generation")
@@ -34,10 +37,14 @@ public class uploadStepdef {
          outputStream.write(bytes);
          outputStream.flush();
          outputStream.close();
-
+   FileOutputStream outputStream1=new FileOutputStream("src/main/resources/evidences/upload.txt",true);
+Instant instant= Instant.now();
+         ZoneId zoneId=ZoneId.of("Asia/Kolkata");
+         ZonedDateTime zonedDateTime=ZonedDateTime.ofInstant(instant,zoneId);
+   outputStream1.write(zonedDateTime.toString().getBytes());
          given(requestSpecification).contentType(ContentType.MULTIPART)
                  .pathParam("petId",petId)
-                 .filter(ResponseLoggingFilter.logResponseTo(new PrintStream("src/main/resources/evidences/upload.txt"), LogDetail.BODY))
+                 .filter(ResponseLoggingFilter.logResponseTo(new PrintStream(outputStream1), LogDetail.BODY))
                  .formParam("additionalMetadata",ad)
                  .multiPart(f).when().post("/pet/{petId}/uploadImage")
                  .then().assertThat().statusCode(200)
