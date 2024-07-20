@@ -1,0 +1,34 @@
+2024-03-01T22:43:57.740024600+05:30[Asia/Kolkata]{
+    "id": 191,
+    "category": {
+        "id": 1,
+        "name": "nadan"
+    },
+    "name": "darry",
+    "photoUrls": [
+        "string1",
+        "string2",
+        "string3",
+        "string4",
+        "string5"
+    ],
+    "tags": [
+        {
+            "id": 1,
+            "name": "nadan"
+        },
+        {
+            "id": 2,
+            "name": "patti"
+        },
+        {
+            "id": 3,
+            "name": "pomeranian"
+        },
+        {
+            "id": 4,
+            "name": "foreign"
+        }
+    ],
+    "status": "available"
+}

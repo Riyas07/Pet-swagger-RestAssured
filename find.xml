@@ -1,0 +1,11 @@
+<suite name="findSuite">
+    <listeners>
+        <listener class-name="pet.AnnotationTransfer"></listener>
+    </listeners>
+    <test name="findtest">
+        <classes>
+            <class name="pet.Runner.FindPetsRunner"/>
+        </classes>
+    </test>
+
+</suite>

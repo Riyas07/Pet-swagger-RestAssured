@@ -1,4 +1,7 @@
 <suite name="regression">
+    <listeners>
+        <listener class-name="pet.AnnotationTransfer"/>
+    </listeners>
     <test name="regression test">
         <classes>
             <class name="pet.Runner.RegressionRunner"/>

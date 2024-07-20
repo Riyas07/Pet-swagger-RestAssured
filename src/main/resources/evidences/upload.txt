@@ -1,0 +1,5 @@
+2024-03-01T22:44:24.391552300+05:30[Asia/Kolkata]{
+    "code": 200,
+    "type": "unknown",
+    "message": "additionalMetadata: by riyas\nFile uploaded to ./ApiDemos-debug.apk, 0 bytes"
+}

@@ -33,7 +33,7 @@ public class FindPetsStepdef {
                 .contentType(ContentType.JSON)
                 .filter(ResponseLoggingFilter.logResponseTo(new PrintStream(outputStream), LogDetail.BODY))
                 .config(config().encoderConfig(EncoderConfig.encoderConfig().appendDefaultContentCharsetToContentTypeIfUndefined(false)))
-                .when().get("/pet/findByStatus").then().assertThat().statusCode(200);
+                .when().get("/pet/findByStatu").then().assertThat().statusCode(200);
     }
 
 }

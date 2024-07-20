@@ -1,0 +1,5 @@
+2024-03-01T22:44:27.884648200+05:30[Asia/Kolkata]{
+    "code": 404,
+    "type": "unknown",
+    "message": "java.lang.NumberFormatException: For input string: \"sam\""
+}
